@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>VuciDAW</h1>
+  <h1>Simple Polyphonic DAW</h1>
 
   <div id="controls">
     <button id="playButton">Play</button>
@@ -14,9 +14,21 @@
     <button id="stopButton">Stop</button>
   </div>
 
+  <div id="guidelinesControls">
+    <label for="baseFrequency">Base Frequency (Hz):</label>
+    <input type="number" id="baseFrequency" value="440" min="20" max="20000" step="1">
+    
+    <label for="toggleGuidelines">
+      <input type="checkbox" id="toggleGuidelines" checked>
+      Show Octave Guidelines
+    </label>
+  </div>
+
   <canvas id="musicCanvas" width="800" height="600"></canvas>
 
+  <!-- Include scripts -->
   <script src="script.js"></script>
   <script src="playbackControls.js"></script>
+  <script src="guidelines.js"></script> <!-- New script for guidelines -->
 </body>
 </html>

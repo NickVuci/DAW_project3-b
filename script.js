@@ -57,6 +57,9 @@ function endDrawing() {
 
   // Optionally, reset currentPath
   currentPath = [];
+
+  // Redraw Canvas to include new guidelines if necessary
+  drawCanvas();
 }
 
 // Utility Function to Get Canvas Coordinates
@@ -67,3 +70,34 @@ function getCanvasCoordinates(event) {
     y: event.clientY - rect.top
   };
 }
+
+// Function to Draw the Entire Canvas
+function drawCanvas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (typeof drawGuidelines === 'function' && document.getElementById('toggleGuidelines').checked) {
+    drawGuidelines();
+  }
+  redrawPaths();
+}
+
+// Function to Redraw All Stored Paths
+function redrawPaths() {
+  ctx.strokeStyle = 'black';
+  ctx.lineWidth = 2; // Thicker lines for better visibility
+  window.drawingData.drawingPaths.forEach(path => {
+    if (path.length > 0) {
+      ctx.beginPath();
+      ctx.moveTo(path[0].x, path[0].y);
+      for (let i = 1; i < path.length; i++) {
+        ctx.lineTo(path[i].x, path[i].y);
+      }
+      ctx.stroke();
+    }
+  });
+}
+
+// Initial Draw
+drawCanvas();
+
+// Redraw canvas when window is resized
+window.addEventListener('resize', drawCanvas);

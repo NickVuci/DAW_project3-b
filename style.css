@@ -10,13 +10,30 @@ body {
     margin-bottom: 20px;
   }
   
-  #controls {
+  #controls, #guidelinesControls {
     margin-bottom: 10px;
   }
   
   #controls button {
     margin: 0 5px;
     padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  #guidelinesControls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  #guidelinesControls label {
+    font-size: 16px;
+  }
+  
+  #guidelinesControls input[type="number"] {
+    width: 100px;
+    padding: 5px;
     font-size: 16px;
   }
   

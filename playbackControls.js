@@ -30,7 +30,7 @@ function yToFrequency(y) {
   const maxLog = Math.log10(maxFreq);
   const scale = (maxLog - minLog) / canvasHeight;
 
-  // Invert y to have 0 at the bottom
+  // Invert y to have 0 at the top
   return Math.pow(10, maxLog - (y * scale));
 }
 
