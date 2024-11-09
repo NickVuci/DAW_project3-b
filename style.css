@@ -30,6 +30,17 @@ body {
     font-size: 16px;
   }
   
+  #downloadButton {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #downloadButton:hover {
+    background-color: #45a049;
+  }
+  
   #guidelinesControls {
     display: flex;
     justify-content: center;

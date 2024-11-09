@@ -14,7 +14,7 @@
     <button id="stopButton">Stop</button>
     <button id="clearButton">Clear</button> <!-- Existing Clear Button -->
     
-    <!-- New Waveform Selection Dropdown -->
+    <!-- Waveform Selection Dropdown -->
     <label for="waveformSelect">Waveform:</label>
     <select id="waveformSelect">
       <option value="sine" selected>Sine</option>
@@ -22,6 +22,9 @@
       <option value="sawtooth">Sawtooth</option>
       <option value="triangle">Triangle</option>
     </select>
+
+    <!-- New Download Button -->
+    <button id="downloadButton">Download</button>
   </div>
 
   <div id="guidelinesControls">
@@ -39,6 +42,7 @@
   <!-- Include scripts -->
   <script src="script.js"></script>
   <script src="playbackControls.js"></script>
-  <script src="guidelines.js"></script> <!-- Script for guidelines -->
+  <script src="guidelines.js"></script>
+  <script src="download.js"></script> <!-- New Download Script -->
 </body>
 </html>
