@@ -9,10 +9,11 @@ let startTime = 0;
 let pauseTime = 0;
 let oscillators = []; // Array to hold multiple oscillators
 
-// Get Playback Buttons
+// Get Playback Buttons and Waveform Select
 const playButton = document.getElementById('playButton');
 const pauseButton = document.getElementById('pauseButton');
 const stopButton = document.getElementById('stopButton');
+const waveformSelect = document.getElementById('waveformSelect'); // New Waveform Select
 
 // Event Listeners for Playback Buttons
 playButton.addEventListener('click', playAudio);
@@ -95,7 +96,10 @@ function scheduleNotes() {
     const oscillator = audioCtx.createOscillator();
     const gainNode = audioCtx.createGain();
 
-    oscillator.type = 'sine';
+    // Set Oscillator Type Based on User Selection
+    const selectedWaveform = waveformSelect.value;
+    oscillator.type = selectedWaveform;
+
     gainNode.gain.value = 0.1; // Volume Control
 
     oscillator.connect(gainNode);

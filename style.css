@@ -14,9 +14,19 @@ body {
     margin-bottom: 10px;
   }
   
-  #controls button {
+  #controls button, #controls select {
     margin: 0 5px;
     padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  #controls label {
+    font-size: 16px;
+    margin-right: 5px;
+  }
+  
+  #waveformSelect {
+    padding: 5px;
     font-size: 16px;
   }
   
