@@ -43,6 +43,7 @@ body {
   
   #guidelinesControls {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 15px;
@@ -50,12 +51,19 @@ body {
   
   #guidelinesControls label {
     font-size: 16px;
+    display: flex;
+    align-items: center;
   }
   
   #guidelinesControls input[type="number"] {
-    width: 100px;
+    width: 80px;
     padding: 5px;
     font-size: 16px;
+    margin-left: 5px;
+  }
+  
+  #guidelinesControls input[type="checkbox"] {
+    margin-right: 5px;
   }
   
   #musicCanvas {

@@ -23,7 +23,7 @@
       <option value="triangle">Triangle</option>
     </select>
 
-    <!-- New Download Button -->
+    <!-- Download Button -->
     <button id="downloadButton">Download</button>
   </div>
 
@@ -35,6 +35,15 @@
       <input type="checkbox" id="toggleGuidelines" checked>
       Show Octave Guidelines
     </label>
+
+    <!-- New EDO Controls -->
+    <label for="edoInput">EDO Divisions:</label>
+    <input type="number" id="edoInput" value="12" min="2" max="100" step="1">
+
+    <label for="toggleEdoGuidelines">
+      <input type="checkbox" id="toggleEdoGuidelines" checked>
+      Show EDO Guidelines
+    </label>
   </div>
 
   <canvas id="musicCanvas" width="800" height="600"></canvas>
@@ -43,6 +52,6 @@
   <script src="script.js"></script>
   <script src="playbackControls.js"></script>
   <script src="guidelines.js"></script>
-  <script src="download.js"></script> <!-- New Download Script -->
+  <script src="download.js"></script>
 </body>
 </html>
