@@ -20,6 +20,10 @@ canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', endDrawing);
 canvas.addEventListener('mouseout', endDrawing);
 
+// Event Listener for Clear Button
+const clearButton = document.getElementById('clearButton');
+clearButton.addEventListener('click', clearCanvas);
+
 // Drawing Functions
 function startDrawing(event) {
   isDrawing = true;
@@ -59,6 +63,23 @@ function endDrawing() {
   currentPath = [];
 
   // Redraw Canvas to include new guidelines if necessary
+  drawCanvas();
+}
+
+// Function to Clear Canvas and Reset Drawing Data
+function clearCanvas() {
+  // Confirm with the user to prevent accidental clearing
+  const confirmClear = confirm("Are you sure you want to clear all drawn lines?");
+  if (!confirmClear) return;
+
+  // Clear drawing paths and reset maxX
+  window.drawingData.drawingPaths = [];
+  window.drawingData.maxX = 0;
+
+  // Clear the canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Redraw Canvas to include guidelines if enabled
   drawCanvas();
 }
 
