@@ -13,7 +13,7 @@ let oscillators = []; // Array to hold multiple oscillators
 const playButton = document.getElementById('playButton');
 const pauseButton = document.getElementById('pauseButton');
 const stopButton = document.getElementById('stopButton');
-const waveformSelect = document.getElementById('waveformSelect'); // New Waveform Select
+const waveformSelect = document.getElementById('waveformSelect'); // Waveform Select
 
 // Event Listeners for Playback Buttons
 playButton.addEventListener('click', playAudio);
@@ -23,8 +23,8 @@ stopButton.addEventListener('click', stopAudio);
 // Function to Map Y-Coordinate to Frequency (Logarithmic)
 function yToFrequency(y) {
   const canvasHeight = window.drawingData.canvas.height;
-  const minFreq = 20;    // 20 Hz
-  const maxFreq = 20000; // 20 kHz
+  const minFreq = parseFloat(document.getElementById('minFrequency').value) || 20;
+  const maxFreq = parseFloat(document.getElementById('maxFrequency').value) || 20000;
 
   // Calculate the logarithmic scale
   const minLog = Math.log10(minFreq);
@@ -117,6 +117,10 @@ function scheduleNotes() {
     // Calculate Path Duration
     const pathDuration = ((path[path.length - 1].x - path[0].x) / maxX) * totalDuration;
 
+    // Ensure that frequencies are within minFreq and maxFreq
+    const minFreq = parseFloat(document.getElementById('minFrequency').value) || 20;
+    const maxFreq = parseFloat(document.getElementById('maxFrequency').value) || 20000;
+
     // Start and Stop the Oscillator
     oscillator.start(currentTime + startTimeOffset);
     oscillator.stop(currentTime + startTimeOffset + pathDuration);
@@ -131,12 +135,19 @@ function scheduleFrequencyChanges(oscillator, path, totalDuration, maxX, current
   // Clear Previous Frequency Automation
   oscillator.frequency.cancelScheduledValues(currentTime);
 
+  const minFreq = parseFloat(document.getElementById('minFrequency').value) || 20;
+  const maxFreq = parseFloat(document.getElementById('maxFrequency').value) || 20000;
+
   path.forEach((point, index) => {
     let timeOffset = ((point.x / maxX) * totalDuration) - pauseTime;
 
     if (timeOffset < 0) return; // Skip Points Before Current Time
 
     let frequency = yToFrequency(point.y);
+
+    // Clamp frequency within minFreq and maxFreq
+    frequency = Math.max(minFreq, Math.min(maxFreq, frequency));
+
     let time = currentTime + timeOffset;
 
     if (index === 0) {

@@ -44,6 +44,31 @@
       <input type="checkbox" id="toggleEdoGuidelines" checked>
       Show EDO Guidelines
     </label>
+
+    <!-- New EDO Value Controls -->
+    <label for="toggleEdoValues">
+      <input type="checkbox" id="toggleEdoValues" checked>
+      Show EDO Values
+    </label>
+
+    <div id="edoValueFormat">
+      <span>EDO Value Format:</span>
+      <label>
+        <input type="radio" name="edoFormat" value="hz" checked>
+        Hz
+      </label>
+      <label>
+        <input type="radio" name="edoFormat" value="cents">
+        Cents
+      </label>
+    </div>
+
+    <!-- New Frequency Range Controls -->
+    <label for="minFrequency">Min Frequency (Hz):</label>
+    <input type="number" id="minFrequency" value="20" min="20" max="20000" step="1">
+    
+    <label for="maxFrequency">Max Frequency (Hz):</label>
+    <input type="number" id="maxFrequency" value="20000" min="20" max="20000" step="1">
   </div>
 
   <canvas id="musicCanvas" width="800" height="600"></canvas>

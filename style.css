@@ -66,6 +66,38 @@ body {
     margin-right: 5px;
   }
   
+  #edoValueFormat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  #edoValueFormat span {
+    font-size: 16px;
+  }
+  
+  #edoValueFormat label {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+  }
+  
+  #edoValueFormat input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  /* New Styles for Frequency Range Controls */
+  #guidelinesControls #minFrequency,
+  #guidelinesControls #maxFrequency {
+    width: 100px;
+  }
+  
+  #guidelinesControls #minFrequency,
+  #guidelinesControls #maxFrequency {
+    padding: 5px;
+    font-size: 16px;
+  }
+  
   #musicCanvas {
     border: 1px solid #ccc;
     background-color: #fff;
